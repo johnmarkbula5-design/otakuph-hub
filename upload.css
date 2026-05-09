@@ -1,0 +1,178 @@
+/* ============================================================
+   OTAKUPH — upload.css
+   ============================================================ */
+
+.page-upload { padding-top: 64px; }
+
+.upload-page { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+.upload-header { text-align: center; margin-bottom: 36px; }
+.upload-title { font-family: var(--font-title); font-size: 2.2rem; font-weight: 900; margin-bottom: 8px; }
+.upload-sub { color: var(--text2); font-size: 1rem; }
+
+.upload-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.form-col { display: flex; flex-direction: column; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Cover preview */
+.cover-preview {
+  background: var(--bg3);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.cover-preview:hover { border-color: var(--accent); }
+.cover-preview img { width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); }
+.cover-placeholder { text-align: center; color: var(--text3); padding: 20px; }
+.cover-placeholder span { font-size: 2.5rem; display: block; margin-bottom: 8px; }
+.cover-placeholder p { font-size: 0.85rem; }
+
+/* Upload rules */
+.upload-rules {
+  background: rgba(67,97,238,0.07);
+  border: 1px solid rgba(67,97,238,0.2);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-top: auto;
+}
+.upload-rules h4 { font-size: 0.85rem; font-weight: 700; color: var(--text2); margin-bottom: 10px; letter-spacing: 0.5px; }
+.upload-rules ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.upload-rules li { font-size: 0.82rem; color: var(--text3); padding-left: 14px; position: relative; }
+.upload-rules li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+
+.upload-footer-actions { display: flex; justify-content: flex-end; gap: 14px; padding-top: 28px; border-top: 1px solid var(--border); margin-top: 28px; }
+
+/* Upload gate */
+.upload-gate { display: flex; align-items: center; justify-content: center; min-height: 60vh; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .upload-page { padding: 24px 20px 60px; }
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .upload-form-card { padding: 24px; }
+  .form-row-2 { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   OTAKUPH — profile.css
+   ============================================================ */
+
+.page-profile { padding-top: 64px; }
+
+/* Gate */
+.profile-gate { display: flex; justify-content: center; }
+
+/* Banner */
+.profile-page { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+.profile-banner {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin: 28px 0 24px;
+  overflow: hidden;
+}
+.banner-bg {
+  height: 130px;
+  background: linear-gradient(135deg, #1a0512, #0d0d12, #0a0a1a);
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(230,57,70,0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(123,45,139,0.2) 0%, transparent 50%);
+}
+.profile-identity {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 0 28px 24px;
+  margin-top: -40px;
+  position: relative;
+}
+.profile-avatar-lg {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 700;
+  border: 4px solid var(--card);
+  flex-shrink: 0;
+  z-index: 1;
+}
+.profile-info { padding-bottom: 4px; }
+.profile-username { font-family: var(--font-title); font-size: 1.6rem; font-weight: 900; line-height: 1.1; margin-bottom: 2px; }
+.profile-email { font-size: 0.85rem; color: var(--text3); margin-bottom: 8px; }
+.profile-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge { padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; }
+.badge-otaku { background: rgba(230,57,70,0.12); border: 1px solid rgba(230,57,70,0.3); color: var(--accent2); }
+.badge-genre { background: rgba(67,97,238,0.12); border: 1px solid rgba(67,97,238,0.3); color: #7b9ff9; }
+
+/* Stats */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.pstat {
+  background: var(--card);
+  padding: 20px;
+  text-align: center;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.pstat-num { font-family: var(--font-title); font-size: 1.8rem; font-weight: 900; color: var(--accent); }
+.pstat-label { font-size: 0.75rem; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Tabs */
+.profile-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+.ptab {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text3);
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: -1px;
+}
+.ptab:hover { color: var(--text2); }
+.ptab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Tab content */
+.ptab-content {}
+.tab-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.tab-header h2 { font-family: var(--font-title); font-size: 1.2rem; }
+
+/* Settings */
+.settings-card { max-width: 520px; }
+.settings-card h2 { font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 24px; }
+.settings-actions { display: flex; gap: 12px; margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-page { padding: 0 20px 60px; }
+  .profile-stats { grid-template-columns: repeat(2, 1fr); }
+  .profile-identity { flex-direction: column; align-items: flex-start; }
+  .profile-avatar-lg { width: 72px; height: 72px; font-size: 1.6rem; }
+}
+@media (max-width: 500px) {
+  .profile-stats { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Anime — OtakuPH</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/upload.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page-upload">
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;">
+        <span class="logo-icon">⛩</span>
+        <span class="logo-text">Otaku<span class="accent">PH</span></span>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="browse.html" class="nav-link">Browse Anime</a>
+      <a href="community.html" class="nav-link">Community</a>
+    </div>
+    <div class="nav-user" id="navUser" style="display:none;">
+      <div class="avatar-menu">
+        <div class="avatar" id="userAvatar">?</div>
+        <div class="dropdown" id="userDropdown">
+          <span class="dropdown-name" id="dropdownName">User</span>
+          <a href="profile.html" class="dropdown-item">My Profile</a>
+          <hr class="dropdown-divider"/>
+          <button class="dropdown-item dropdown-logout" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-auth" id="navAuth">
+      <a href="login.html" class="btn btn-ghost">Log In</a>
+      <a href="register.html" class="btn btn-primary">Join Free</a>
+    </div>
+  </nav>
+
+  <div class="upload-page">
+    <!-- Gate for logged-out users -->
+    <div class="upload-gate" id="uploadGate" style="display:none;">
+      <div class="gate-box">
+        <div class="gate-icon">🔒</div>
+        <h2>Members Only</h2>
+        <p>You need an account to upload anime to OtakuPH.</p>
+        <div class="gate-btns">
+          <a href="register.html" class="btn btn-primary btn-lg">Create Account</a>
+          <a href="login.html" class="btn btn-outline btn-lg">Log In</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload form for logged-in users -->
+    <div class="upload-container" id="uploadContainer">
+      <div class="upload-header">
+        <h1 class="upload-title">⬆ Upload Anime</h1>
+        <p class="upload-sub">Share anime content with the OtakuPH community</p>
+      </div>
+
+      <div class="upload-form-card">
+        <div class="alert" id="uploadAlert" style="display:none;"></div>
+        <div class="alert alert-success" id="uploadSuccess" style="display:none;">
+          ✅ Anime uploaded successfully! <a href="browse.html" class="link-accent">View in Browse</a>
+        </div>
+
+        <div class="form-grid">
+          <!-- LEFT -->
+          <div class="form-col">
+            <div class="form-group">
+              <label class="form-label">Anime Title <span class="required">*</span></label>
+              <input type="text" id="upTitle" class="form-input" placeholder="e.g. Attack on Titan Season 4"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description <span class="required">*</span></label>
+              <textarea id="upDesc" class="form-input form-textarea" placeholder="Brief description of this anime..." maxlength="300"></textarea>
+              <span class="form-hint"><span id="descCount">0</span>/300</span>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Genre <span class="required">*</span></label>
+                <select id="upGenre" class="form-input form-select">
+                  <option value="">Select genre...</option>
+                  <option>Action</option>
+                  <option>Romance</option>
+                  <option>Comedy</option>
+                  <option>Horror</option>
+                  <option>Fantasy</option>
+                  <option>Sci-Fi</option>
+                  <option>Slice of Life</option>
+                  <option>Sports</option>
+                  <option>Isekai</option>
+                  <option>Mecha</option>
+                  <option>Mystery</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Status</label>
+                <select id="upStatus" class="form-input form-select">
+                  <option value="Ongoing">Ongoing</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Episode Count</label>
+                <input type="number" id="upEpisodes" class="form-input" placeholder="e.g. 24" min="1" max="2000"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Year</label>
+                <input type="number" id="upYear" class="form-input" placeholder="e.g. 2024" min="1960" max="2030"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Studio</label>
+              <input type="text" id="upStudio" class="form-input" placeholder="e.g. MAPPA, Wit Studio"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Video / Embed URL <span class="required">*</span></label>
+              <input type="url" id="upVideoUrl" class="form-input" placeholder="YouTube, Google Drive, or direct link"/>
+              <span class="form-hint">Paste a YouTube or embeddable video link</span>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="form-col">
+            <div class="form-group">
+              <label class="form-label">Cover Image URL</label>
+              <input type="url" id="upCoverUrl" class="form-input" placeholder="https://example.com/cover.jpg"/>
+              <span class="form-hint">Paste a direct image URL for the cover art</span>
+            </div>
+            <div class="cover-preview" id="coverPreview">
+              <div class="cover-placeholder">
+                <span>🎌</span>
+                <p>Cover preview</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tags (optional)</label>
+              <input type="text" id="upTags" class="form-input" placeholder="e.g. shonen, magic, school"/>
+              <span class="form-hint">Comma-separated tags</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Age Rating</label>
+              <select id="upRating" class="form-input form-select">
+                <option value="G">G – All ages</option>
+                <option value="PG">PG – Teens</option>
+                <option value="R17">R-17+ – Mature</option>
+              </select>
+            </div>
+            <div class="upload-rules">
+              <h4>📋 Upload Guidelines</h4>
+              <ul>
+                <li>Only upload content you have rights to share.</li>
+                <li>No hentai or adult content — this is a community platform.</li>
+                <li>Use stable video links (YouTube preferred).</li>
+                <li>Provide accurate titles and genres.</li>
+                <li>Repeated rule violations may lead to account suspension.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="upload-footer-actions">
+          <button class="btn btn-ghost" onclick="history.back()">Cancel</button>
+          <button class="btn btn-primary btn-lg" id="submitUploadBtn">🚀 Publish Anime</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer footer-slim">
+    <p>© 2025 OtakuPH · Made with ❤️ for Filipino Otaku</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/upload.js"></script>
+</body>
+</html>

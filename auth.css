@@ -1,0 +1,177 @@
+/* ============================================================
+   OTAKUPH — auth.css  (Login & Register)
+   ============================================================ */
+
+.page-auth {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+.auth-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ---------- Left Panel ---------- */
+.auth-panel-left {
+  flex: 0 0 42%;
+  background: linear-gradient(160deg, #1a0a1e 0%, #0d0d12 40%, #1a0a0e 100%);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-panel-left::before {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(230,57,70,0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.auth-logo {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--text);
+  display: inline-block;
+  margin-bottom: 60px;
+}
+
+.auth-art {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.art-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(230,57,70,0.2);
+}
+.c1 {
+  width: 280px; height: 280px;
+  top: -40px; left: -60px;
+  animation: spin 20s linear infinite;
+}
+.c2 {
+  width: 180px; height: 180px;
+  bottom: 20px; right: -40px;
+  border-color: rgba(123,45,139,0.25);
+  animation: spin 14s linear infinite reverse;
+}
+
+.art-kanji {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+.art-kanji span {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(230,57,70,0.5);
+  line-height: 1;
+}
+.art-kanji span:nth-child(2) { color: rgba(230,57,70,0.3); font-size: 1.8rem; padding-left: 20px; }
+.art-kanji span:nth-child(3) { color: rgba(230,57,70,0.15); font-size: 1.4rem; padding-left: 40px; }
+
+.auth-tagline {
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* ---------- Right Panel ---------- */
+.auth-panel-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  animation: slideUp 0.4s ease;
+}
+
+.auth-title {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.auth-sub { color: var(--text2); font-size: 0.92rem; margin-bottom: 28px; }
+
+/* Eye toggle */
+.input-eye { position: relative; }
+.input-eye .form-input { padding-right: 44px; }
+.eye-btn {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text3);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.eye-btn:hover { color: var(--text2); }
+
+/* Divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--text3);
+  font-size: 0.85rem;
+}
+.auth-divider::before,
+.auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Demo hint */
+.demo-hint {
+  margin-top: 24px;
+  padding: 12px 14px;
+  background: rgba(67,97,238,0.1);
+  border: 1px solid rgba(67,97,238,0.25);
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  color: var(--text2);
+}
+.demo-hint b { color: #4361ee; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .auth-wrapper { flex-direction: column; }
+  .auth-panel-left { flex: 0 0 auto; padding: 30px 24px 24px; min-height: 200px; }
+  .auth-logo { margin-bottom: 24px; }
+  .art-kanji { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+  .art-kanji span, .art-kanji span:nth-child(2), .art-kanji span:nth-child(3) {
+    font-size: 1.4rem; padding-left: 0;
+  }
+  .auth-tagline { display: none; }
+  .auth-panel-right { padding: 24px; }
+  .art-circle { display: none; }
+}

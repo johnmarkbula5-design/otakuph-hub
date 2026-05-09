@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile — OtakuPH</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/profile.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page-profile">
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;">
+        <span class="logo-icon">⛩</span>
+        <span class="logo-text">Otaku<span class="accent">PH</span></span>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="browse.html" class="nav-link">Browse Anime</a>
+      <a href="community.html" class="nav-link">Community</a>
+    </div>
+    <div class="nav-user" id="navUser" style="display:none;">
+      <a href="upload.html" class="btn btn-ghost">⬆ Upload</a>
+      <div class="avatar-menu">
+        <div class="avatar" id="userAvatar">?</div>
+        <div class="dropdown" id="userDropdown">
+          <span class="dropdown-name" id="dropdownName">User</span>
+          <a href="profile.html" class="dropdown-item">My Profile</a>
+          <hr class="dropdown-divider"/>
+          <button class="dropdown-item dropdown-logout" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+    </div>
+    <div class="nav-auth" id="navAuth">
+      <a href="login.html" class="btn btn-ghost">Log In</a>
+      <a href="register.html" class="btn btn-primary">Join Free</a>
+    </div>
+  </nav>
+
+  <div class="profile-gate" id="profileGate" style="display:none;">
+    <div class="gate-box">
+      <div class="gate-icon">🔒</div>
+      <h2>Please Log In</h2>
+      <p>You need an account to view your profile.</p>
+      <a href="login.html" class="btn btn-primary btn-lg">Log In</a>
+    </div>
+  </div>
+
+  <div class="profile-page" id="profilePage">
+    <!-- BANNER -->
+    <div class="profile-banner">
+      <div class="banner-bg" id="bannerBg"></div>
+      <div class="profile-identity">
+        <div class="profile-avatar-lg" id="profileAvatarLg">?</div>
+        <div class="profile-info">
+          <h1 class="profile-username" id="profileUsername">Username</h1>
+          <p class="profile-email" id="profileEmail">email@example.com</p>
+          <div class="profile-badges">
+            <span class="badge badge-otaku">🎌 Otaku</span>
+            <span class="badge badge-genre" id="profileGenreBadge">Action Fan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="profile-stats">
+      <div class="pstat">
+        <span class="pstat-num" id="statUploads">0</span>
+        <span class="pstat-label">Uploads</span>
+      </div>
+      <div class="pstat">
+        <span class="pstat-num" id="statPosts">0</span>
+        <span class="pstat-label">Posts</span>
+      </div>
+      <div class="pstat">
+        <span class="pstat-num" id="statWatched">0</span>
+        <span class="pstat-label">Watched</span>
+      </div>
+      <div class="pstat">
+        <span class="pstat-num" id="statJoined">—</span>
+        <span class="pstat-label">Member Since</span>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="profile-tabs">
+      <button class="ptab active" data-tab="uploads">My Uploads</button>
+      <button class="ptab" data-tab="posts">My Posts</button>
+      <button class="ptab" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- TAB: UPLOADS -->
+    <div class="ptab-content" id="tab-uploads">
+      <div class="tab-header">
+        <h2>My Uploads</h2>
+        <a href="upload.html" class="btn btn-primary">+ Upload New</a>
+      </div>
+      <div class="anime-grid" id="myUploadsGrid">
+        <p class="empty-msg">You haven't uploaded any anime yet. <a href="upload.html" class="link-accent">Upload now →</a></p>
+      </div>
+    </div>
+
+    <!-- TAB: POSTS -->
+    <div class="ptab-content" id="tab-posts" style="display:none;">
+      <div class="tab-header">
+        <h2>My Posts</h2>
+        <a href="community.html" class="btn btn-primary">+ New Post</a>
+      </div>
+      <div class="posts-feed" id="myPostsFeed">
+        <p class="empty-msg">You haven't posted anything yet. <a href="community.html" class="link-accent">Join the community →</a></p>
+      </div>
+    </div>
+
+    <!-- TAB: SETTINGS -->
+    <div class="ptab-content" id="tab-settings" style="display:none;">
+      <div class="settings-card">
+        <h2>Account Settings</h2>
+        <div class="alert alert-success" id="settingsSuccess" style="display:none;">✅ Changes saved!</div>
+        <div class="form-group">
+          <label class="form-label">Display Name</label>
+          <input type="text" id="settingsUsername" class="form-input" placeholder="Username"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" id="settingsEmail" class="form-input" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Favorite Genre</label>
+          <select id="settingsGenre" class="form-input form-select">
+            <option value="">Select genre...</option>
+            <option>Action</option><option>Romance</option><option>Comedy</option>
+            <option>Horror</option><option>Fantasy</option><option>Sci-Fi</option>
+            <option>Slice of Life</option><option>Sports</option><option>Isekai</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bio</label>
+          <textarea id="settingsBio" class="form-input form-textarea" placeholder="Tell the community about yourself..." maxlength="200"></textarea>
+        </div>
+        <div class="settings-actions">
+          <button class="btn btn-primary" id="saveSettingsBtn">Save Changes</button>
+          <button class="btn btn-danger" id="deleteAccountBtn">Delete Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer footer-slim">
+    <p>© 2025 OtakuPH · Made with ❤️ for Filipino Otaku</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

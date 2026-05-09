@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community — OtakuPH</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/community.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page-community">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:8px;">
+        <span class="logo-icon">⛩</span>
+        <span class="logo-text">Otaku<span class="accent">PH</span></span>
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="browse.html" class="nav-link">Browse Anime</a>
+      <a href="community.html" class="nav-link active">Community</a>
+    </div>
+    <div class="nav-auth" id="navAuth">
+      <a href="login.html" class="btn btn-ghost">Log In</a>
+      <a href="register.html" class="btn btn-primary">Join Free</a>
+    </div>
+    <div class="nav-user" id="navUser" style="display:none;">
+      <a href="upload.html" class="btn btn-ghost">⬆ Upload</a>
+      <div class="avatar-menu">
+        <div class="avatar" id="userAvatar">?</div>
+        <div class="dropdown" id="userDropdown">
+          <span class="dropdown-name" id="dropdownName">User</span>
+          <a href="profile.html" class="dropdown-item">My Profile</a>
+          <hr class="dropdown-divider"/>
+          <button class="dropdown-item dropdown-logout" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="community-layout">
+
+    <!-- SIDEBAR LEFT -->
+    <aside class="community-sidebar">
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">🔥 Trending Tags</h3>
+        <div class="tag-cloud" id="tagCloud"></div>
+      </div>
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">👥 Active Members</h3>
+        <div class="members-list" id="membersList"></div>
+      </div>
+    </aside>
+
+    <!-- MAIN FEED -->
+    <main class="community-main">
+      <div class="community-header">
+        <h1 class="page-title">🌸 Community Feed</h1>
+        <p class="page-sub">Chat, share, and connect with Filipino otaku</p>
+      </div>
+
+      <!-- POST COMPOSER -->
+      <div class="post-composer" id="postComposer">
+        <div class="composer-locked" id="composerLocked">
+          <p>🔒 <a href="login.html" class="link-accent">Log in</a> or <a href="register.html" class="link-accent">create an account</a> to post in the community.</p>
+        </div>
+        <div class="composer-form" id="composerForm" style="display:none;">
+          <div class="composer-top">
+            <div class="avatar composer-avatar" id="composerAvatar">?</div>
+            <textarea id="postText" class="composer-input" placeholder="Share your thoughts, recommendations, or just say こんにちは! (Max 500 chars)" maxlength="500"></textarea>
+          </div>
+          <div class="composer-bottom">
+            <div class="composer-tags">
+              <span class="tag-btn" data-tag="#Discuss">💬 Discuss</span>
+              <span class="tag-btn" data-tag="#Review">⭐ Review</span>
+              <span class="tag-btn" data-tag="#Recom">🎌 Recommend</span>
+              <span class="tag-btn" data-tag="#Meme">😂 Meme</span>
+            </div>
+            <div class="composer-actions">
+              <span class="char-count" id="charCount">0/500</span>
+              <button class="btn btn-primary" id="submitPost">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEED FILTERS -->
+      <div class="feed-filters">
+        <button class="feed-filter active" data-filter="all">All Posts</button>
+        <button class="feed-filter" data-filter="#Discuss">Discussions</button>
+        <button class="feed-filter" data-filter="#Review">Reviews</button>
+        <button class="feed-filter" data-filter="#Recom">Recommendations</button>
+        <button class="feed-filter" data-filter="#Meme">Memes</button>
+      </div>
+
+      <!-- POSTS FEED -->
+      <div class="posts-feed" id="postsFeed">
+        <!-- Populated by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- COMMENT MODAL -->
+  <div class="modal-overlay" id="commentModal" style="display:none;">
+    <div class="modal-box modal-comments">
+      <button class="modal-close" id="closeCommentModal">✕</button>
+      <div id="commentModalContent"></div>
+    </div>
+  </div>
+
+  <footer class="footer footer-slim">
+    <p>© 2025 OtakuPH · Made with ❤️ for Filipino Otaku</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/community.js"></script>
+</body>
+</html>

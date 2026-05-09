@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account — OtakuPH</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/auth.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page-auth">
+
+  <div class="auth-wrapper">
+    <!-- LEFT PANEL -->
+    <div class="auth-panel-left">
+      <a href="index.html" class="auth-logo">⛩ Otaku<span class="accent">PH</span></a>
+      <div class="auth-art">
+        <div class="art-circle c1"></div>
+        <div class="art-circle c2"></div>
+        <div class="art-kanji">
+          <span>アニメ</span>
+          <span>漫画</span>
+          <span>仲間</span>
+        </div>
+        <p class="auth-tagline">Join the biggest Filipino anime community. Watch, share, and connect.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-panel-right">
+      <div class="auth-card">
+        <h2 class="auth-title">Create Account</h2>
+        <p class="auth-sub">Already a member? <a href="login.html" class="link-accent">Log in</a></p>
+
+        <div class="alert" id="registerAlert" style="display:none;"></div>
+
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" id="regUsername" class="form-input" placeholder="e.g. SakuraChan_PH" maxlength="20"/>
+          <span class="form-hint">3–20 characters, letters/numbers/underscores</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" id="regEmail" class="form-input" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-eye">
+            <input type="password" id="regPassword" class="form-input" placeholder="At least 6 characters"/>
+            <button type="button" class="eye-btn" data-target="regPassword">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <div class="input-eye">
+            <input type="password" id="regConfirm" class="form-input" placeholder="Repeat password"/>
+            <button type="button" class="eye-btn" data-target="regConfirm">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Favorite Genre</label>
+          <select id="regGenre" class="form-input form-select">
+            <option value="">Select a genre...</option>
+            <option>Action</option>
+            <option>Romance</option>
+            <option>Comedy</option>
+            <option>Horror</option>
+            <option>Fantasy</option>
+            <option>Sci-Fi</option>
+            <option>Slice of Life</option>
+            <option>Sports</option>
+            <option>Isekai</option>
+          </select>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="regTerms"/>
+          <label for="regTerms">I agree to the <a href="#" class="link-accent">Terms of Service</a></label>
+        </div>
+        <button class="btn btn-primary btn-full" id="registerBtn">Create My Account</button>
+        <div class="auth-divider"><span>or</span></div>
+        <a href="index.html" class="btn btn-ghost btn-full">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

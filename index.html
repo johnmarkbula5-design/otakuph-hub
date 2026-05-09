@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OtakuPH — Your Anime Community</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body class="page-home">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">⛩</span>
+      <span class="logo-text">Otaku<span class="accent">PH</span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="browse.html" class="nav-link">Browse Anime</a>
+      <a href="community.html" class="nav-link">Community</a>
+      <a href="upload.html" class="nav-link nav-link--upload" id="uploadNavLink" style="display:none;">Upload</a>
+    </div>
+    <div class="nav-auth" id="navAuth">
+      <a href="login.html" class="btn btn-ghost">Log In</a>
+      <a href="register.html" class="btn btn-primary">Join Free</a>
+    </div>
+    <div class="nav-user" id="navUser" style="display:none;">
+      <a href="upload.html" class="btn btn-ghost">⬆ Upload</a>
+      <div class="avatar-menu">
+        <div class="avatar" id="userAvatar">?</div>
+        <div class="dropdown" id="userDropdown">
+          <span class="dropdown-name" id="dropdownName">User</span>
+          <a href="profile.html" class="dropdown-item">My Profile</a>
+          <a href="community.html" class="dropdown-item">Community</a>
+          <hr class="dropdown-divider"/>
+          <button class="dropdown-item dropdown-logout" id="logoutBtn">Log Out</button>
+        </div>
+      </div>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="sakura" id="sakuraContainer"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🇵🇭 Pinoy Otaku Community</div>
+      <h1 class="hero-title">
+        Your Ultimate<br/>
+        <span class="title-accent">Anime Hub</span><br/>
+        in the Philippines
+      </h1>
+      <p class="hero-sub">Watch, upload, and share anime with fellow Filipino otaku. Create your free account and join thousands of fans today.</p>
+      <div class="hero-cta">
+        <a href="register.html" class="btn btn-primary btn-lg">Start Watching — Free</a>
+        <a href="browse.html" class="btn btn-outline btn-lg">Browse Anime</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Otaku Members</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Anime Titles</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Streaming</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="anime-cards-float">
+        <div class="float-card fc1">
+          <div class="fc-thumb" style="background: linear-gradient(135deg,#ff6b6b,#ee0979);">⚔️</div>
+          <div class="fc-info"><b>Attack on Titan</b><span>Action · Drama</span></div>
+        </div>
+        <div class="float-card fc2">
+          <div class="fc-thumb" style="background: linear-gradient(135deg,#f7971e,#ffd200);">🍥</div>
+          <div class="fc-info"><b>Naruto Shippuden</b><span>Adventure · Ninja</span></div>
+        </div>
+        <div class="float-card fc3">
+          <div class="fc-thumb" style="background: linear-gradient(135deg,#4776e6,#8e54e9);">👊</div>
+          <div class="fc-info"><b>Dragon Ball Z</b><span>Action · Fantasy</span></div>
+        </div>
+        <div class="float-card fc4">
+          <div class="fc-thumb" style="background: linear-gradient(135deg,#11998e,#38ef7d);">🌸</div>
+          <div class="fc-info"><b>Demon Slayer</b><span>Action · Supernatural</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING -->
+  <section class="section trending-section">
+    <div class="section-header">
+      <h2 class="section-title">🔥 Trending Now</h2>
+      <a href="browse.html" class="see-all">See All →</a>
+    </div>
+    <div class="anime-grid" id="trendingGrid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section features-section">
+    <h2 class="section-title centered">Why OtakuPH?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📺</div>
+        <h3>Watch Anime</h3>
+        <p>Stream thousands of anime episodes in HD. From classics to the latest simulcasts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⬆️</div>
+        <h3>Upload & Share</h3>
+        <p>Share your favorite clips, fan subs, or AMVs with the entire PH community.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Interact</h3>
+        <p>Post, comment, react, and make friends with fellow otaku across the Philippines.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Rank & Review</h3>
+        <p>Rate anime, write reviews, and see what's hot in the PH otaku scene.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">⛩ Otaku<span class="accent">PH</span></div>
+    <p class="footer-tagline">Made with ❤️ for Filipino Otaku</p>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 OtakuPH. All rights reserved.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+/* ============================================================
+   OTAKUPH — home.css
+   ============================================================ */
+
+/* ---------- Hero ---------- */
+.page-home { overflow-x: hidden; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 40px 60px;
+  position: relative;
+  overflow: hidden;
+  gap: 60px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(230,57,70,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,57,70,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Sakura petals */
+.sakura { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.sakura-petal {
+  position: absolute;
+  top: -40px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  animation: sakuraFall linear infinite;
+}
+
+/* Radial glow */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(230,57,70,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(230,57,70,0.12);
+  border: 1px solid rgba(230,57,70,0.3);
+  color: var(--accent2);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 40px;
+  margin-bottom: 22px;
+  animation: fadeIn 0.6s ease;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  animation: slideUp 0.7s ease both;
+}
+
+.title-accent {
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(230,57,70,0.5);
+}
+
+.hero-sub {
+  font-size: 1.08rem;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 480px;
+  animation: slideUp 0.8s 0.1s ease both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  animation: slideUp 0.9s 0.2s ease both;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  animation: slideUp 1s 0.3s ease both;
+}
+.stat { display: flex; flex-direction: column; }
+.stat-num {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label { font-size: 0.75rem; color: var(--text3); font-weight: 600; letter-spacing: 0.5px; }
+.stat-divider { width: 1px; height: 36px; background: var(--border); }
+
+/* Hero Visual (floating cards) */
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: none;
+}
+@media (min-width: 1100px) { .hero-visual { display: block; } }
+
+.anime-cards-float {
+  position: relative;
+  width: 340px;
+  height: 420px;
+}
+
+.float-card {
+  position: absolute;
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 220px;
+  box-shadow: var(--shadow);
+  animation: float ease-in-out infinite;
+}
+.float-card:hover { box-shadow: 0 12px 36px rgba(230,57,70,0.2); border-color: var(--accent); }
+
+.fc1 { top: 0; left: 0; animation-duration: 3.5s; }
+.fc2 { top: 100px; right: 0; animation-duration: 4s; animation-delay: 0.5s; }
+.fc3 { top: 210px; left: 20px; animation-duration: 3.2s; animation-delay: 1s; }
+.fc4 { top: 320px; right: 10px; animation-duration: 4.5s; animation-delay: 0.3s; }
+
+.fc-thumb {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.fc-info { display: flex; flex-direction: column; }
+.fc-info b { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+.fc-info span { font-size: 0.72rem; color: var(--text3); }
+
+/* ---------- Trending Section ---------- */
+.trending-section { padding-top: 0; }
+
+/* ---------- Features ---------- */
+.features-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.feature-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.feature-icon { font-size: 2.4rem; margin-bottom: 14px; }
+.feature-card h3 { font-family: var(--font-title); font-size: 1.1rem; margin-bottom: 10px; }
+.feature-card p { color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .hero { padding: 90px 20px 50px; flex-direction: column; text-align: center; gap: 30px; }
+  .hero-cta { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-sub { margin: 0 auto 32px; }
+  .hero-badge { margin: 0 auto 22px; }
+}
